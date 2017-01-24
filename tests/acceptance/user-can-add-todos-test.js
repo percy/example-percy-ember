@@ -6,6 +6,8 @@ moduleForAcceptance('Acceptance | user can add todos');
 test('add todos', function(assert) {
   visit('/');
 
+  percySnapshot('Empty todo list');
+
   fillIn('#new-todo', 'Bake a cake');
   keyEvent('#new-todo', 'keydown', 13);
 
@@ -16,5 +18,7 @@ test('add todos', function(assert) {
     assert.equal(currentURL(), '/');
     assert.equal(find('ul.todo-list li:first').text().trim(), 'Bake a cake');
     assert.equal(find('ul.todo-list li:last').text().trim(), 'Rake the lawn');
+
+    percySnapshot('Todo list with 2 todos');
   });
 });
