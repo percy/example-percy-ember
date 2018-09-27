@@ -1,24 +1,33 @@
-import { test } from 'qunit';
-import moduleForAcceptance from 'todomvc/tests/helpers/module-for-acceptance';
+import { test } from "qunit";
+import { visit, fillIn, keyEvent, currentURL } from "@ember/test-helpers";
+import moduleForAcceptance from "todomvc/tests/helpers/module-for-acceptance";
 
-moduleForAcceptance('Acceptance | user can add todos');
+moduleForAcceptance("Acceptance | user can add todos");
 
-test('add todos', function(assert) {
-  visit('/');
+test("add todos", async function(assert) {
+  await visit("/");
 
-  percySnapshot('Empty todo list');
+  percySnapshot("Empty todo list");
 
-  fillIn('#new-todo', 'Bake a cake');
-  keyEvent('#new-todo', 'keydown', 13);
+  await fillIn("#new-todo", "Bake a cake");
+  await keyEvent("#new-todo", "keydown", 13);
 
-  fillIn('#new-todo', 'Rake the lawn');
-  keyEvent('#new-todo', 'keydown', 13);
+  await fillIn("#new-todo", "Rake the lawn");
+  await keyEvent("#new-todo", "keydown", 13);
 
-  andThen(function() {
-    assert.equal(currentURL(), '/');
-    assert.equal(find('ul.todo-list li:first').text().trim(), 'Bake a cake');
-    assert.equal(find('ul.todo-list li:last').text().trim(), 'Rake the lawn');
+  await assert.equal(currentURL(), "/");
+  await assert.equal(
+    find("ul.todo-list li:first")
+      .text()
+      .trim(),
+    "Bake a cake"
+  );
+  await assert.equal(
+    find("ul.todo-list li:last")
+      .text()
+      .trim(),
+    "Rake the lawn"
+  );
 
-    percySnapshot('Todo list with 2 todos');
-  });
+  percySnapshot("Todo list with 2 todos");
 });
