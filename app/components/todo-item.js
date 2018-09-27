@@ -1,49 +1,55 @@
-import Ember from 'ember';
+import { set } from "@ember/object";
+import { isBlank } from "@ember/utils";
+import { scheduleOnce } from "@ember/runloop";
+import { inject as service } from "@ember/service";
+import Component from "@ember/component";
 
-export default Ember.Component.extend({
-	repo: Ember.inject.service(),
-	tagName: 'li',
-	editing: false,
-	classNameBindings: ['todo.completed', 'editing'],
+export default Component.extend({
+  repo: service(),
+  tagName: "li",
+  editing: false,
+  classNameBindings: ["todo.completed", "editing"],
 
-	actions: {
-		startEditing() {
-			this.get('onStartEdit')();
-			this.set('editing', true);
-			Ember.run.scheduleOnce('afterRender', this, 'focusInput');
-		},
+  actions: {
+    startEditing() {
+      this.get("onStartEdit")();
+      this.set("editing", true);
+      scheduleOnce("afterRender", this, "focusInput");
+    },
 
-		doneEditing(todoTitle) {
-			if (!this.get('editing')) { return; }
-			if (Ember.isBlank(todoTitle)) {
-				this.send('removeTodo');
-			} else {
-				this.set('todo.title', todoTitle.trim());
-				this.set('editing', false);
-				this.get('onEndEdit')();
-			}
-		},
+    doneEditing(todoTitle) {
+      if (!this.get("editing")) {
+        return;
+      }
+      if (isBlank(todoTitle)) {
+        this.send("removeTodo");
+      } else {
+        this.set("todo.title", todoTitle.trim());
+        this.set("editing", false);
+        this.get("onEndEdit")();
+      }
+    },
 
-		handleKeydown(e) {
-			if (e.keyCode === 13) {
-				e.target.blur();
-			} else if (e.keyCode === 27) {
-				this.set('editing', false);
-			}
-		},
+    handleKeydown(e) {
+      if (e.keyCode === 13) {
+        e.target.blur();
+      } else if (e.keyCode === 27) {
+        this.set("editing", false);
+      }
+    },
 
-		toggleCompleted(e) {
-			let todo = this.get('todo');
-			Ember.set(todo, 'completed', e.target.checked);
-			this.get('repo').persist();
-		},
+    toggleCompleted(e) {
+      let todo = this.get("todo");
+      set(todo, "completed", e.target.checked);
+      this.get("repo").persist();
+    },
 
-		removeTodo() {
-			this.get('repo').delete(this.get('todo'));
-		}
-	},
+    removeTodo() {
+      this.get("repo").delete(this.get("todo"));
+    }
+  },
 
-	focusInput() {
-		this.element.querySelector('input.edit').focus();
-	}
+  focusInput() {
+    this.element.querySelector("input.edit").focus();
+  }
 });

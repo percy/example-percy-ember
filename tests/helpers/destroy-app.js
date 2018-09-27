@@ -1,6 +1,5 @@
-import Ember from 'ember';
+import { run } from '@ember/runloop';
 
 export default function destroyApp(application) {
-  window.localStorage.clear();
-	Ember.run(application, 'destroy');
+  run(application, 'destroy');
 }
