@@ -1,33 +1,43 @@
-import { test } from "qunit";
-import { visit, fillIn, keyEvent, currentURL } from "@ember/test-helpers";
-import moduleForAcceptance from "todomvc/tests/helpers/module-for-acceptance";
+import { test, module } from "qunit";
+import { percySnapshot } from "ember-percy";
+import { setupApplicationTest } from "ember-qunit";
+import {
+  find,
+  visit,
+  fillIn,
+  triggerKeyEvent,
+  currentURL
+} from "@ember/test-helpers";
 
-moduleForAcceptance("Acceptance | user can add todos");
+module("Acceptance | user can add todos", function(hooks) {
+  setupApplicationTest(hooks);
 
-test("add todos", async function(assert) {
-  await visit("/");
+  hooks.beforeEach(function() {
+    // Make sure we clear the local storage for each run
+    window.localStorage.clear();
+  });
 
-  percySnapshot("Empty todo list");
+  test("add todos", async function(assert) {
+    await visit("/");
 
-  await fillIn("#new-todo", "Bake a cake");
-  await keyEvent("#new-todo", "keydown", 13);
+    percySnapshot("Empty todo list");
 
-  await fillIn("#new-todo", "Rake the lawn");
-  await keyEvent("#new-todo", "keydown", 13);
+    await fillIn("#new-todo", "Bake a cake");
+    await triggerKeyEvent("#new-todo", "keydown", 13);
 
-  await assert.equal(currentURL(), "/");
-  await assert.equal(
-    find("ul.todo-list li:first")
-      .text()
-      .trim(),
-    "Bake a cake"
-  );
-  await assert.equal(
-    find("ul.todo-list li:last")
-      .text()
-      .trim(),
-    "Rake the lawn"
-  );
+    await fillIn("#new-todo", "Rake the lawn");
+    await triggerKeyEvent("#new-todo", "keydown", 13);
 
-  percySnapshot("Todo list with 2 todos");
+    await assert.equal(currentURL(), "/");
+    await assert.equal(
+      find("ul.todo-list li:first-child").innerText.trim(),
+      "Bake a cake"
+    );
+    await assert.equal(
+      find("ul.todo-list li:last-child").innerText.trim(),
+      "Rake the lawn"
+    );
+
+    percySnapshot("Todo list with 2 todos");
+  });
 });
