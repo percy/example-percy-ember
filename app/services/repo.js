@@ -1,28 +1,25 @@
-import Service from "@ember/service";
+import Service from '@ember/service';
 
 export default Service.extend({
   lastId: 0,
   data: null,
   findAll() {
-    return (
-      this.get("data") ||
-      this.set("data", JSON.parse(window.localStorage.getItem("todos") || "[]"))
-    );
+    return this.get('data') || this.set('data', JSON.parse(window.localStorage.getItem('todos') || '[]'));
   },
 
   add(attrs) {
-    let todo = Object.assign({ id: this.incrementProperty("lastId") }, attrs);
-    this.get("data").pushObject(todo);
+    let todo = Object.assign({ id: this.incrementProperty('lastId') }, attrs);
+    this.get('data').pushObject(todo);
     this.persist();
     return todo;
   },
 
   delete(todo) {
-    this.get("data").removeObject(todo);
+    this.get('data').removeObject(todo);
     this.persist();
   },
 
   persist() {
-    window.localStorage.setItem("todos", JSON.stringify(this.get("data")));
+    window.localStorage.setItem('todos', JSON.stringify(this.get('data')));
   }
 });
