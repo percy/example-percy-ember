@@ -14,7 +14,7 @@ module('Acceptance | user can add todos', function(hooks) {
   test('add todos', async function(assert) {
     await visit('/');
 
-    percySnapshot('Empty todo list');
+    await percySnapshot('Empty todo list');
 
     await fillIn('#new-todo', 'Bake a cake');
     await triggerKeyEvent('#new-todo', 'keydown', 13);
@@ -26,6 +26,6 @@ module('Acceptance | user can add todos', function(hooks) {
     await assert.equal(find('ul.todo-list li:first-child').innerText.trim(), 'Bake a cake');
     await assert.equal(find('ul.todo-list li:last-child').innerText.trim(), 'Rake the lawn');
 
-    percySnapshot('Todo list with 2 todos');
+    await percySnapshot('Todo list with 2 todos');
   });
 });
