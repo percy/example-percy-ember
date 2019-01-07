@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # Use the lowest supported version of Node (specified in package.json "engines")
-      - image: circleci/node:6
+      - image: circleci/node:6-browsers
 
     working_directory: ~/example-ember
 
