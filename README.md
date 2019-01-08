@@ -1,4 +1,4 @@
-# TodoMVC example application using Ember
+# TodoMVC example application using Ember [![CircleCI](https://circleci.com/gh/percy/example-ember/tree/master.svg?style=svg)](https://circleci.com/gh/percy/example-ember/tree/master)
 
 This is the example application that's used in [Percy's Ember tutorial](https://percy.io/docs/tutorials/ember).
 
