@@ -3354,11 +3354,11 @@ elegant-spinner@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/elegant-spinner/-/elegant-spinner-1.0.1.tgz#db043521c95d7e303fd8f345bedc3349cfb0729e"
 
-ember-ajax@^3.1.0:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/ember-ajax/-/ember-ajax-3.1.1.tgz#dcb55aaf1a9fe8b2ce04206863384709ebc2358b"
+ember-ajax@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/ember-ajax/-/ember-ajax-5.0.0.tgz#404b17c93194ab37aff86b7b8607d8edab93c9ec"
   dependencies:
-    ember-cli-babel "^6.16.0"
+    ember-cli-babel "^7.5.0"
     najax "^1.0.3"
 
 ember-assign-polyfill@^2.6.0:
@@ -3397,7 +3397,7 @@ ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.0.0-beta.7, ember-cli-babel@^6
     ember-cli-version-checker "^2.1.2"
     semver "^5.5.0"
 
-ember-cli-babel@^7.4.3, ember-cli-babel@^7.7.3:
+ember-cli-babel@^7.4.3, ember-cli-babel@^7.5.0, ember-cli-babel@^7.7.3:
   version "7.7.3"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-7.7.3.tgz#f94709f6727583d18685ca6773a995877b87b8a0"
   dependencies:
