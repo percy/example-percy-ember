@@ -319,6 +319,13 @@
     "@babel/helper-plugin-utils" "^7.0.0"
     lodash "^4.17.11"
 
+"@babel/plugin-transform-block-scoping@^7.5.5":
+  version "7.6.2"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-block-scoping/-/plugin-transform-block-scoping-7.6.2.tgz#96c33ab97a9ae500cc6f5b19e04a7e6553360a79"
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.0.0"
+    lodash "^4.17.13"
+
 "@babel/plugin-transform-classes@^7.4.4":
   version "7.4.4"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-classes/-/plugin-transform-classes-7.4.4.tgz#0ce4094cdafd709721076d3b9c38ad31ca715eb6"
@@ -631,10 +638,12 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@ember-data/-build-infra@3.12.0":
-  version "3.12.0"
-  resolved "https://registry.yarnpkg.com/@ember-data/-build-infra/-/-build-infra-3.12.0.tgz#474e50c72553006e7dd25fb2585f79dc41e47123"
+"@ember-data/-build-infra@3.13.1":
+  version "3.13.1"
+  resolved "https://registry.yarnpkg.com/@ember-data/-build-infra/-/-build-infra-3.13.1.tgz#e31247b72a4c61b837286d0ef0829f4128466601"
   dependencies:
+    "@babel/plugin-transform-block-scoping" "^7.5.5"
+    "@ember/edition-utils" "^1.1.1"
     babel-plugin-debug-macros "^0.3.2"
     babel-plugin-feature-flags "^0.3.1"
     babel-plugin-filter-imports "^3.0.0"
@@ -657,58 +666,65 @@
     rsvp "^4.8.5"
     silent-error "^1.1.1"
 
-"@ember-data/adapter@3.12.0":
-  version "3.12.0"
-  resolved "https://registry.yarnpkg.com/@ember-data/adapter/-/adapter-3.12.0.tgz#5e160019d7959e87ad6b4287c0adc79c546a9e3a"
+"@ember-data/adapter@3.13.1":
+  version "3.13.1"
+  resolved "https://registry.yarnpkg.com/@ember-data/adapter/-/adapter-3.13.1.tgz#2cb9becd3b8ac844e1ae97b408d2c3118a695f5c"
   dependencies:
-    "@ember-data/-build-infra" "3.12.0"
+    "@ember-data/-build-infra" "3.13.1"
+    "@ember/edition-utils" "^1.1.1"
     ember-cli-babel "^7.8.0"
     ember-cli-test-info "^1.0.0"
     ember-cli-typescript "^2.0.2"
 
-"@ember-data/canary-features@3.12.0":
-  version "3.12.0"
-  resolved "https://registry.yarnpkg.com/@ember-data/canary-features/-/canary-features-3.12.0.tgz#325ca9ef12a59b69cfd7f320767e8513f0ed05e0"
+"@ember-data/canary-features@3.13.1":
+  version "3.13.1"
+  resolved "https://registry.yarnpkg.com/@ember-data/canary-features/-/canary-features-3.13.1.tgz#c60302d498153fbefe9f1a6d30b9a23d997cbc49"
   dependencies:
     ember-cli-babel "^7.8.0"
 
-"@ember-data/model@3.12.0":
-  version "3.12.0"
-  resolved "https://registry.yarnpkg.com/@ember-data/model/-/model-3.12.0.tgz#252dd52b39945d9a15a7e2eb3c26cffac43fa224"
+"@ember-data/model@3.13.1":
+  version "3.13.1"
+  resolved "https://registry.yarnpkg.com/@ember-data/model/-/model-3.13.1.tgz#6364d5ed3f8997a35d39b5b97a3519b2df63870b"
   dependencies:
-    "@ember-data/-build-infra" "3.12.0"
-    "@ember-data/store" "3.12.0"
+    "@ember-data/-build-infra" "3.13.1"
+    "@ember-data/store" "3.13.1"
+    "@ember/edition-utils" "^1.1.1"
     ember-cli-babel "^7.8.0"
     ember-cli-string-utils "^1.1.0"
     ember-cli-test-info "^1.0.0"
     ember-cli-typescript "^2.0.2"
+    ember-compatibility-helpers "^1.2.0"
     inflection "1.12.0"
 
 "@ember-data/rfc395-data@^0.0.4":
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/@ember-data/rfc395-data/-/rfc395-data-0.0.4.tgz#ecb86efdf5d7733a76ff14ea651a1b0ed1f8a843"
 
-"@ember-data/serializer@3.12.0":
-  version "3.12.0"
-  resolved "https://registry.yarnpkg.com/@ember-data/serializer/-/serializer-3.12.0.tgz#3c97ccc931a5bf12125a948d8a9137de3071bec8"
+"@ember-data/serializer@3.13.1":
+  version "3.13.1"
+  resolved "https://registry.yarnpkg.com/@ember-data/serializer/-/serializer-3.13.1.tgz#0d1f844caa4e98f6f6c7f28341fa6660b7e568c3"
   dependencies:
-    "@ember-data/-build-infra" "3.12.0"
-    "@ember-data/store" "3.12.0"
+    "@ember-data/-build-infra" "3.13.1"
+    "@ember-data/store" "3.13.1"
     ember-cli-babel "^7.8.0"
     ember-cli-test-info "^1.0.0"
     ember-cli-typescript "^2.0.2"
 
-"@ember-data/store@3.12.0":
-  version "3.12.0"
-  resolved "https://registry.yarnpkg.com/@ember-data/store/-/store-3.12.0.tgz#0b1e6a25b5ff79e96faded4de176f65837b8a40c"
+"@ember-data/store@3.13.1":
+  version "3.13.1"
+  resolved "https://registry.yarnpkg.com/@ember-data/store/-/store-3.13.1.tgz#e74cad3f5650451f90740b3b3e5f4ed0f6213127"
   dependencies:
-    "@ember-data/-build-infra" "3.12.0"
-    "@ember-data/adapter" "3.12.0"
-    "@ember-data/canary-features" "3.12.0"
+    "@ember-data/-build-infra" "3.13.1"
+    "@ember-data/adapter" "3.13.1"
+    "@ember-data/canary-features" "3.13.1"
     ember-cli-babel "^7.8.0"
     ember-cli-path-utils "^1.0.0"
     ember-cli-typescript "^2.0.2"
     heimdalljs "^0.3.0"
+
+"@ember/edition-utils@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@ember/edition-utils/-/edition-utils-1.1.1.tgz#d5732c3da593f202e6e1ac6dbee56a758242403f"
 
 "@ember/jquery@^0.6.1":
   version "0.6.1"
@@ -3766,7 +3782,7 @@ ember-cli@~3.12.0:
     watch-detector "^0.1.0"
     yam "^1.0.0"
 
-ember-compatibility-helpers@^1.1.1:
+ember-compatibility-helpers@^1.1.1, ember-compatibility-helpers@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/ember-compatibility-helpers/-/ember-compatibility-helpers-1.2.0.tgz#feee16c5e9ef1b1f1e53903b241740ad4b01097e"
   dependencies:
@@ -3774,15 +3790,15 @@ ember-compatibility-helpers@^1.1.1:
     ember-cli-version-checker "^2.1.1"
     semver "^5.4.1"
 
-ember-data@~3.12.0:
-  version "3.12.0"
-  resolved "https://registry.yarnpkg.com/ember-data/-/ember-data-3.12.0.tgz#ce20c41163ce50124d12a4370641fd9b4a21c3e2"
+ember-data@~3.13.1:
+  version "3.13.1"
+  resolved "https://registry.yarnpkg.com/ember-data/-/ember-data-3.13.1.tgz#a6b31703de9feaae19f2a0fccfc72185808174dd"
   dependencies:
-    "@ember-data/-build-infra" "3.12.0"
-    "@ember-data/adapter" "3.12.0"
-    "@ember-data/model" "3.12.0"
-    "@ember-data/serializer" "3.12.0"
-    "@ember-data/store" "3.12.0"
+    "@ember-data/-build-infra" "3.13.1"
+    "@ember-data/adapter" "3.13.1"
+    "@ember-data/model" "3.13.1"
+    "@ember-data/serializer" "3.13.1"
+    "@ember-data/store" "3.13.1"
     "@ember/ordered-set" "^2.0.3"
     "@glimmer/env" "^0.1.7"
     ember-cli-babel "^7.8.0"
