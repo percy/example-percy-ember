@@ -42,7 +42,7 @@
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-percy": "^1.6.0",
     "ember-resolver": "^5.2.1",
-    "ember-source": "~3.14.2",
+    "ember-source": "~3.15.0",
     "ember-test-helpers": "^0.6.3",
     "eslint-plugin-ember": "^7.7.2",
     "loader.js": "^4.7.0",
