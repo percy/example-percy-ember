@@ -3,7 +3,8 @@ version: 2.1
 default_steps: &default_steps
   steps:
     - checkout
-    - run: yarn install
+    # --ignore-engines until we fully move off of node 8
+    - run: yarn install --ignore-engines
     - run: yarn test
 
 jobs:
