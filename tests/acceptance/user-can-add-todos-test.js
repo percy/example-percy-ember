@@ -1,5 +1,5 @@
 import { test, module } from 'qunit';
-import { percySnapshot } from 'ember-percy';
+import percySnapshot from '@percy/ember';
 import { setupApplicationTest } from 'ember-qunit';
 import { find, visit, fillIn, triggerKeyEvent, currentURL } from '@ember/test-helpers';
 

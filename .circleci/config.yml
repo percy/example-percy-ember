@@ -3,8 +3,9 @@ version: 2.1
 default_steps: &default_steps
   steps:
     - checkout
-    - run: yarn install
-    - run: yarn test
+    # --ignore-engines until we fully move off of node 8
+    - run: yarn install --ignore-engines
+    - run: yarn test:percy
 
 jobs:
   node_8:
