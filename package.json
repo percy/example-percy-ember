@@ -21,7 +21,7 @@
   "devDependencies": {
     "@ember/jquery": "^1.1.0",
     "@ember/optional-features": "^1.3.0",
-    "@percy/ember": "2.0.0-beta.3",
+    "@percy/ember": "2.0.0",
     "broccoli-asset-rev": "^3.0.0",
     "ember-ajax": "^5.0.0",
     "ember-cli": "~3.12.0",
