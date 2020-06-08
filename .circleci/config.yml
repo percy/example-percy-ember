@@ -9,7 +9,7 @@ default_steps: &default_steps
 jobs:
   test:
     docker:
-      - image: circleci/node:12-browsers
+      - image: circleci/node:12.1-browsers
     environment:
       PERCY_ENABLE: 0
     <<: *default_steps
