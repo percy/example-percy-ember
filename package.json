@@ -19,7 +19,7 @@
     "test:percy": "percy exec -- ember test"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9",
+    "@babel/core": "^7.12.10",
     "@ember/jquery": "^1.1.0",
     "@ember/optional-features": "^2.0.0",
     "@percy/ember": "2.1.4",
