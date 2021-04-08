@@ -1,6 +1,7 @@
-import { filterBy } from '@ember/object/computed';
 import Controller from '@ember/controller';
 
-export default Controller.extend({
-  todos: filterBy('model', 'completed', true)
-});
+export default class CompletedController extends Controller {
+  get todos() {
+    return this.model.filterBy('completed');
+  }
+}

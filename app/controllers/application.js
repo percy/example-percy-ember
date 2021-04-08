@@ -1,26 +1,30 @@
+import { action } from '@ember/object';
 import { isBlank } from '@ember/utils';
-import { filterBy } from '@ember/object/computed';
 import { inject as service } from '@ember/service';
 import Controller from '@ember/controller';
 
-export default Controller.extend({
-  repo: service(),
-  remaining: filterBy('model', 'completed', false),
-  completed: filterBy('model', 'completed'),
-  actions: {
-    createTodo(e) {
-      if (e.keyCode === 13 && !isBlank(e.target.value)) {
-        this.get('repo').add({
-          title: e.target.value.trim(),
-          completed: false
-        });
-        e.target.value = '';
-      }
-    },
+export default class ApplicationController extends Controller {
+  @service repo;
 
-    clearCompleted() {
-      this.get('model').removeObjects(this.get('completed'));
-      this.get('repo').persist();
+  get remaining() {
+    return this.model.filterBy('completed', false);
+  }
+
+  get completed() {
+    return this.model.filterBy('completed');
+  }
+
+  @action
+  createTodo(e) {
+    if (e.keyCode === 13 && !isBlank(e.target.value)) {
+      this.repo.add({ title: e.target.value.trim(), completed: false });
+      e.target.value = '';
     }
   }
-});
+
+  @action
+  clearCompleted() {
+    this.model.removeObjects(this.completed);
+    this.repo.persist();
+  }
+}
