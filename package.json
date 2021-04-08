@@ -19,8 +19,7 @@
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "start": "ember serve",
-    "test": "ember test",
-    "test:percy": "percy exec -- ember test"
+    "test": "percy exec -- ember test"
   },
   "dependencies": {
     "todomvc-app-css": "^2.3.0"
