@@ -18,7 +18,13 @@
         <li><LinkTo @route="completed" @activeClass="selected">Completed</LinkTo></li>
       </ul>
       {{#if this.completed.length}}
-        <button class="clear-completed" {{on "click" this.clearCompleted}} type="button">Clear completed</button>
+        <button
+          type="button"
+          class="clear-completed"
+          {{on "click" this.clearCompleted}}
+        >
+          Clear completed
+        </button>
       {{/if}}
     </footer>
   {{/if}}
