@@ -1,29 +1,29 @@
-import { computed, set } from '@ember/object';
+import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
-import Component from '@ember/component';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 
-export default Component.extend({
-  repo: service(),
-  tagName: 'section',
-  elementId: 'main',
-  canToggle: true,
-  allCompleted: computed('todos.@each.completed', function() {
-    return this.get('todos').isEvery('completed');
-  }),
+export default class TodoList extends Component {
+  @service repo;
+  @tracked canToggle = true;
 
-  actions: {
-    enableToggle() {
-      this.set('canToggle', true);
-    },
-
-    disableToggle() {
-      this.set('canToggle', false);
-    },
-
-    toggleAll() {
-      let allCompleted = this.get('allCompleted');
-      this.get('todos').forEach(todo => set(todo, 'completed', !allCompleted));
-      this.get('repo').persist();
-    }
+  get allCompleted() {
+    return this.args.todos.isEvery('completed');
   }
-});
+
+  @action
+  enableToggle() {
+    this.canToggle = true;
+  }
+
+  @action
+  disableToggle() {
+    this.canToggle = false;
+  }
+
+  @action
+  toggleAll() {
+    this.args.todos.setEach('completed', !this.allCompleted);
+    this.repo.persist();
+  }
+}

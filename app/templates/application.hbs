@@ -1,30 +1,29 @@
-<section id="todoapp">
-  <header id="header">
+<section class="todoapp">
+  <header class="header">
     <h1>todos</h1>
     <input
-      type="text"
-      id="new-todo"
-      onkeydown={{action "createTodo"}}
+      class="new-todo"
+      {{on "keydown" this.createTodo}}
       placeholder="What needs to be done?"
       autofocus
     >
   </header>
   {{outlet}}
-  {{#if (gt model.length 0)}}
-    <footer id="footer">
-      <span id="todo-count"><strong>{{remaining.length}}</strong> {{pluralize "item" remaining.length}} left</span>
-      <ul id="filters">
-        <li>{{#link-to "index" activeClass="selected"}}All{{/link-to}}</li>
-        <li>{{#link-to "active" activeClass="selected"}}Active{{/link-to}}</li>
-        <li>{{#link-to "completed" activeClass="selected"}}Completed{{/link-to}}</li>
+  {{#if (gt @model.length 0)}}
+    <footer class="footer">
+      <span class="todo-count"><strong>{{this.remaining.length}}</strong> {{pluralize "item" this.remaining.length}} left</span>
+      <ul class="filters">
+        <li><LinkTo @route="index" @activeClass="selected">All</LinkTo></li>
+        <li><LinkTo @route="active" @activeClass="selected">Active</LinkTo></li>
+        <li><LinkTo @route="completed" @activeClass="selected">Completed</LinkTo></li>
       </ul>
-      {{#if completed.length}}
-        <button id="clear-completed" onclick={{action "clearCompleted"}}>Clear completed</button>
+      {{#if this.completed.length}}
+        <button class="clear-completed" {{on "click" this.clearCompleted}} type="button">Clear completed</button>
       {{/if}}
     </footer>
   {{/if}}
 </section>
-<footer id="info">
+<footer class="info">
   <p>Double-click to edit a todo</p>
   <p>
     Created by

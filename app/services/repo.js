@@ -1,25 +1,28 @@
+import { A } from '@ember/array';
 import Service from '@ember/service';
 
-export default Service.extend({
-  lastId: 0,
-  data: null,
+export default class RepoService extends Service {
+  lastId = 0;
+  data = null;
+
   findAll() {
-    return this.get('data') || this.set('data', JSON.parse(window.localStorage.getItem('todos') || '[]'));
-  },
+    this.data ||= A(JSON.parse(window.localStorage.getItem('todos') || '[]'));
+    return this.data;
+  }
 
   add(attrs) {
-    let todo = Object.assign({ id: this.incrementProperty('lastId') }, attrs);
-    this.get('data').pushObject(todo);
+    let todo = Object.assign({ id: this.lastId++ }, attrs);
+    this.data.pushObject(todo);
     this.persist();
     return todo;
-  },
+  }
 
   delete(todo) {
-    this.get('data').removeObject(todo);
+    this.data.removeObject(todo);
     this.persist();
-  },
+  }
 
   persist() {
-    window.localStorage.setItem('todos', JSON.stringify(this.get('data')));
+    window.localStorage.setItem('todos', JSON.stringify(this.data));
   }
-});
+}
