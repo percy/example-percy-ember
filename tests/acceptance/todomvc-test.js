@@ -3,8 +3,6 @@ import percySnapshot from '@percy/ember';
 import { setupApplicationTest } from 'ember-qunit';
 import { visit, fillIn, triggerKeyEvent, click } from '@ember/test-helpers';
 
-import meta from '@percy/ember/meta';
-
 module('TodoMVC', function (hooks) {
   setupApplicationTest(hooks);
 
@@ -14,7 +12,6 @@ module('TodoMVC', function (hooks) {
   });
 
   test('Loads the app', async function (assert) {
-    console.log(JSON.stringify(meta));
     assert.dom('section.todoapp').exists();
     await percySnapshot(assert);
   });
