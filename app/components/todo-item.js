@@ -29,7 +29,7 @@ export default class TodoItem extends Component {
   }
 
   @action
-  handleKeydown(e) {
+  handleKeyup(e) {
     if (e.keyCode === 13) {
       e.target.blur();
     } else if (e.keyCode === 27) {

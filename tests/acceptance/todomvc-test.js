@@ -18,7 +18,7 @@ module('TodoMVC', function (hooks) {
 
   test('Accepts a new todo', async function (assert) {
     await fillIn('.new-todo', 'New fancy todo');
-    await triggerKeyEvent('.new-todo', 'keydown', 13);
+    await triggerKeyEvent('.new-todo', 'keyup', 13);
 
     assert.dom('.todo-list').exists({ count: 1 });
 
@@ -27,7 +27,7 @@ module('TodoMVC', function (hooks) {
 
   test('Lets you check off a todo', async function (assert) {
     await fillIn('.new-todo', 'A thing to accomplish');
-    await triggerKeyEvent('.new-todo', 'keydown', 13);
+    await triggerKeyEvent('.new-todo', 'keyup', 13);
 
     assert.dom('.todo-count').hasText('1 item left');
 

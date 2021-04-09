@@ -14,7 +14,7 @@
       class="edit"
       value={{@todo.title}}
       {{on "blur" this.doneEditing}}
-      {{on "keydown" this.handleKeydown}}
+      {{on "keyup" this.handleKeyup}}
       {{autofocus}}
     >
   {{/if}}

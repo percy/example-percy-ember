@@ -3,7 +3,7 @@
     <h1>todos</h1>
     <input
       class="new-todo"
-      {{on "keydown" this.createTodo}}
+      {{on "keyup" this.createTodo}}
       placeholder="What needs to be done?"
       autofocus
     >
