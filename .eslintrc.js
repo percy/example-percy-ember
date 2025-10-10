@@ -2,16 +2,17 @@
 
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
   parserOptions: {
-    ecmaVersion: 2018,
+    ecmaVersion: 2020,
     sourceType: 'module',
-    ecmaFeatures: {
-      legacyDecorators: true,
+    requireConfigFile: false,
+    babelOptions: {
+      plugins: [['@babel/plugin-proposal-decorators', { decoratorsBeforeExport: true }]],
     },
   },
   plugins: ['ember'],
-  extends: ['eslint:recommended', 'plugin:ember/recommended', 'plugin:prettier/recommended'],
+  extends: ['eslint:recommended', 'plugin:ember/recommended'],
   env: {
     browser: true,
   },

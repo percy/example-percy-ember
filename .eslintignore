@@ -1,21 +1,19 @@
-# unconventional js
-/blueprints/*/files/
-/vendor/
-
-# compiled output
+# Compiled output
 /dist/
 /tmp/
+/coverage/
 
-# dependencies
-/bower_components/
+# Dependencies
 /node_modules/
 
-# misc
-/coverage/
-!.*
-.eslintcache
+# Testing output
+/.nyc_output/
 
-# ember-try
-/.node_modules.ember-try/
-/bower.json.ember-try
-/package.json.ember-try
+# Build artifacts
+/build/
+/public/robots.txt
+
+# Misc
+.env*
+.pnp*
+.yarn/*

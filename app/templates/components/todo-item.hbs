@@ -1,21 +1,16 @@
-<li class="{{if @todo.completed "completed"}} {{if this.editing "editing"}}">
-  <div class="view">
-    <input
-      class="toggle"
-      type="checkbox"
-      checked={{@todo.completed}}
-      {{on "change" this.toggleCompleted}}
-    >
-    <label {{on "dblclick" this.startEditing}}>{{@todo.title}}</label>
-    <button class="destroy" {{on "click" this.removeTodo}} type="button"></button>
+<li class='{{if @todo.completed "completed"}} {{if this.editing "editing"}}'>
+  <div class='view'>
+    <input class='toggle' type='checkbox' checked={{@todo.completed}} {{on 'change' this.toggleCompleted}} />
+    <label {{on 'dblclick' this.startEditing}}>{{@todo.title}}</label>
+    <button class='destroy' {{on 'click' this.removeTodo}} type='button'></button>
   </div>
   {{#if this.editing}}
     <input
-      class="edit"
+      class='edit'
       value={{@todo.title}}
-      {{on "blur" this.doneEditing}}
-      {{on "keyup" this.handleKeyup}}
+      {{on 'blur' this.doneEditing}}
+      {{on 'keyup' this.handleKeyup}}
       {{autofocus}}
-    >
+    />
   {{/if}}
 </li>

@@ -1,6 +1,6 @@
 import { action } from '@ember/object';
 import { isBlank } from '@ember/utils';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 import Controller from '@ember/controller';
 
 export default class ApplicationController extends Controller {

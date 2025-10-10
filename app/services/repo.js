@@ -6,11 +6,19 @@ export default class RepoService extends Service {
   data = null;
 
   findAll() {
-    this.data ||= A(JSON.parse(window.localStorage.getItem('todos') || '[]'));
+    if (!this.data) {
+      this.data = A(JSON.parse(window.localStorage.getItem('todos') || '[]'));
+      // Set lastId to be higher than any existing todo id
+      if (this.data.length > 0) {
+        this.lastId = Math.max(...this.data.map((todo) => todo.id || 0)) + 1;
+      }
+    }
     return this.data;
   }
 
   add(attrs) {
+    // Ensure data is initialized
+    this.findAll();
     let todo = Object.assign({ id: this.lastId++ }, attrs);
     this.data.pushObject(todo);
     this.persist();
@@ -24,5 +32,12 @@ export default class RepoService extends Service {
 
   persist() {
     window.localStorage.setItem('todos', JSON.stringify(this.data));
+  }
+
+  // Add method to reset data (useful for tests)
+  reset() {
+    this.data = null;
+    this.lastId = 0;
+    window.localStorage.removeItem('todos');
   }
 }
