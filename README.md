@@ -66,7 +66,7 @@ $ npm run test
 
 This will run the app's Ember tests, which contain calls to create Percy snapshots. The snapshots
 will then be uploaded to Percy for comparison. Percy will use the Percy token you used in **Step 2**
-to know which organization and project to upload the snapshots to.
+to know which organization and project to upload the snapshots to. 
 
 You can view the screenshots in Percy now if you want, but there will be no visual comparisons
 yet. You'll see that Percy shows you that these snapshots come from your `tutorial-example` branch.
