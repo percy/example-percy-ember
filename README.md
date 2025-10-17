@@ -11,7 +11,7 @@ The tutorial assumes you're already familiar with JavaScript and [Ember](https:/
 focuses on using it with Percy. You'll still be able to follow along if you're not familiar with
 Ember, but we won't spend time introducing Ember concepts.
 
-The tutorial also assumes you have [Node 12+ with npm](https://nodejs.org/en/download/) and
+The tutorial also assumes you have [Node 18+ with npm](https://nodejs.org/en/download/) and
 [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed.
 
 ### Step 1
@@ -38,13 +38,13 @@ In the shell window you're working in, export the token environment variable:
 
 **Unix**
 
-``` shell
+```shell
 $ export PERCY_TOKEN="<your token here>"
 ```
 
 **Windows**
 
-``` shell
+```shell
 $ set PERCY_TOKEN="<your token here>"
 
 # PowerShell
@@ -59,14 +59,14 @@ configure it in your shell so that Percy is enabled in your local environment.
 Check out a new branch for your work in this tutorial (we'll call this branch `tutorial-example`),
 then run tests & take snapshots:
 
-``` shell
+```shell
 $ git checkout -b tutorial-example
 $ npm run test
 ```
 
 This will run the app's Ember tests, which contain calls to create Percy snapshots. The snapshots
 will then be uploaded to Percy for comparison. Percy will use the Percy token you used in **Step 2**
-to know which organization and project to upload the snapshots to.
+to know which organization and project to upload the snapshots to. 
 
 You can view the screenshots in Percy now if you want, but there will be no visual comparisons
 yet. You'll see that Percy shows you that these snapshots come from your `tutorial-example` branch.
@@ -77,13 +77,8 @@ Use your text editor to edit `app/templates/application.hbs` and introduce some 
 example, you can add inline CSS to bold the "Clear completed" button starting on line 21. After the
 change, that button looks like this:
 
-``` hbs
-<button
-  type="button"
-  class="clear-completed"
-  style="font-weight:bold"
-  {{on "click" this.clearCompleted}}
->
+```hbs
+<button type='button' class='clear-completed' style='font-weight:bold' {{on 'click' this.clearCompleted}}>
   Clear completed
 </button>
 ```
@@ -92,7 +87,7 @@ change, that button looks like this:
 
 Commit the change:
 
-``` shell
+```shell
 $ git commit -am "Emphasize 'Clear completed' button"
 ```
 
@@ -100,7 +95,7 @@ $ git commit -am "Emphasize 'Clear completed' button"
 
 Run the tests with snapshots again:
 
-``` shell
+```shell
 $ npm run test
 ```
 

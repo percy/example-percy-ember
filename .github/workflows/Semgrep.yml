@@ -5,12 +5,11 @@ on:
   # Scan changed files in PRs (diff-aware scanning):
   # The branches below must be a subset of the branches above
   pull_request:
-    branches: ["master", "main"]
+    branches: ['master', 'main']
   push:
-    branches: ["master", "main"]
+    branches: ['master', 'main']
   schedule:
     - cron: '0 6 * * *'
-
 
 permissions:
   contents: read
@@ -19,10 +18,10 @@ jobs:
   semgrep:
     # User definable name of this GitHub Actions job.
     permissions:
-      contents: read  # for actions/checkout to fetch code
-      security-events: write  # for github/codeql-action/upload-sarif to upload SARIF results
-    name: semgrep/ci 
-    # If you are self-hosting, change the following `runs-on` value: 
+      contents: read # for actions/checkout to fetch code
+      security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
+    name: semgrep/ci
+    # If you are self-hosting, change the following `runs-on` value:
     runs-on: ubuntu-latest
 
     container:
@@ -38,8 +37,8 @@ jobs:
       # Run the "semgrep ci" command on the command line of the docker image.
       - run: semgrep ci --sarif --output=semgrep.sarif
         env:
-            # Add the rules that Semgrep uses by setting the SEMGREP_RULES environment variable. 
-            SEMGREP_RULES: p/default # more at semgrep.dev/explore
+          # Add the rules that Semgrep uses by setting the SEMGREP_RULES environment variable.
+          SEMGREP_RULES: p/default # more at semgrep.dev/explore
 
       - name: Upload SARIF file for GitHub Advanced Security Dashboard
         uses: github/codeql-action/upload-sarif@6c089f53dd51dc3fc7e599c3cb5356453a52ca9e # v2.20.0
