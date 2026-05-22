@@ -1,0 +1,60 @@
+# PER-8195 Phase 3 — Ember matrix-row mapping.
+# Test code: ../tests/acceptance/todomvc-advanced-test.js (ember-qunit).
+#
+# Ember tests must live under tests/ per ember-qunit source-set convention;
+# this advanced/ directory holds matrix + README only.
+
+sdk: ember
+package: '@percy/ember'
+language: javascript
+cli_min_version: '1.31.13'
+
+rows:
+  - id: widths
+    state: covered
+    test: 'TodoMVC Advanced > exercises widths'
+  - id: percy_css
+    state: covered
+    test: 'TodoMVC Advanced > exercises percyCSS'
+  - id: min_height
+    state: covered
+    test: 'TodoMVC Advanced > exercises minHeight'
+  - id: enable_javascript
+    state: covered
+    test: 'TodoMVC Advanced > exercises enableJavaScript'
+  - id: responsive_snapshot_capture
+    state: covered
+    test: 'TodoMVC Advanced > exercises responsiveSnapshotCapture'
+  - id: labels
+    state: covered
+    test: 'TodoMVC Advanced > exercises labels'
+  - id: test_case
+    state: covered
+    test: 'TodoMVC Advanced > exercises testCase'
+  - id: device_pixel_ratio
+    state: covered
+    test: 'TodoMVC Advanced > exercises devicePixelRatio'
+  - id: browsers
+    state: covered
+    test: 'TodoMVC Advanced > exercises browsers override'
+  - id: readiness_preset
+    state: covered
+    test: 'TodoMVC Advanced > exercises readiness preset'
+
+  - id: scope
+    state: planned
+  - id: discovery
+    state: planned
+  - id: dom_transformation
+    state: planned
+  - id: regions
+    state: planned
+  - id: sync
+    state: planned
+
+  - id: env_percy_server_address
+    state: covered
+  - id: percy_yml_global_config
+    state: covered
+  - id: environment_info_reporting
+    state: covered
