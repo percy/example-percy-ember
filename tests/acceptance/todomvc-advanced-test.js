@@ -21,35 +21,35 @@ module('TodoMVC Advanced', function (hooks) {
   })
 
   test('exercises widths', async function (assert) {
-    assert.dom('.todo-list li').exists({ count: 1 }, 'seeded todo is present')
+    assert.dom('.todo-count strong').hasText('1', 'seeded todo is counted')
     await percySnapshot('TodoMVC Advanced > exercises widths', {
       widths: [375, 768, 1280, 1920],
     })
   })
 
   test('exercises percyCSS', async function (assert) {
-    assert.dom('.todo-list li').exists({ count: 1 }, 'seeded todo is present')
+    assert.dom('.todo-count strong').hasText('1', 'seeded todo is counted')
     await percySnapshot('TodoMVC Advanced > exercises percyCSS', {
       percyCSS: '.todo-list li { background: #fffde7 !important; }',
     })
   })
 
   test('exercises minHeight', async function (assert) {
-    assert.dom('.todo-list li').exists({ count: 1 }, 'seeded todo is present')
+    assert.dom('.todo-count strong').hasText('1', 'seeded todo is counted')
     await percySnapshot('TodoMVC Advanced > exercises minHeight', {
       minHeight: 2000,
     })
   })
 
   test('exercises enableJavaScript', async function (assert) {
-    assert.dom('.todo-list li').exists({ count: 1 }, 'seeded todo is present')
+    assert.dom('.todo-count strong').hasText('1', 'seeded todo is counted')
     await percySnapshot('TodoMVC Advanced > exercises enableJavaScript', {
       enableJavaScript: true,
     })
   })
 
   test('exercises responsiveSnapshotCapture', async function (assert) {
-    assert.dom('.todo-list li').exists({ count: 1 }, 'seeded todo is present')
+    assert.dom('.todo-count strong').hasText('1', 'seeded todo is counted')
     await percySnapshot('TodoMVC Advanced > exercises responsiveSnapshotCapture', {
       responsiveSnapshotCapture: true,
       widths: [375, 1280],
@@ -57,35 +57,35 @@ module('TodoMVC Advanced', function (hooks) {
   })
 
   test('exercises labels', async function (assert) {
-    assert.dom('.todo-list li').exists({ count: 1 }, 'seeded todo is present')
+    assert.dom('.todo-count strong').hasText('1', 'seeded todo is counted')
     await percySnapshot('TodoMVC Advanced > exercises labels', {
       labels: 'smoke,ember',
     })
   })
 
   test('exercises testCase', async function (assert) {
-    assert.dom('.todo-list li').exists({ count: 1 }, 'seeded todo is present')
+    assert.dom('.todo-count strong').hasText('1', 'seeded todo is counted')
     await percySnapshot('TodoMVC Advanced > exercises testCase', {
       testCase: 'todomvc-advanced-suite',
     })
   })
 
   test('exercises devicePixelRatio', async function (assert) {
-    assert.dom('.todo-list li').exists({ count: 1 }, 'seeded todo is present')
+    assert.dom('.todo-count strong').hasText('1', 'seeded todo is counted')
     await percySnapshot('TodoMVC Advanced > exercises devicePixelRatio', {
       devicePixelRatio: 2,
     })
   })
 
   test('exercises browsers override', async function (assert) {
-    assert.dom('.todo-list li').exists({ count: 1 }, 'seeded todo is present')
+    assert.dom('.todo-count strong').hasText('1', 'seeded todo is counted')
     await percySnapshot('TodoMVC Advanced > exercises browsers override', {
       browsers: ['chrome', 'firefox'],
     })
   })
 
   test('exercises readiness preset', async function (assert) {
-    assert.dom('.todo-list li').exists({ count: 1 }, 'seeded todo is present')
+    assert.dom('.todo-count strong').hasText('1', 'seeded todo is counted')
     await percySnapshot('TodoMVC Advanced > exercises readiness preset', {
       readiness: { preset: 'strict', timeoutMs: 5000 },
     })
